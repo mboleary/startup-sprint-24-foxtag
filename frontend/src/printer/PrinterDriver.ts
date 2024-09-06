@@ -80,7 +80,7 @@ export class PrinterDriver {
     const bytes = this.encoder
       .initialize()
       .align('center')
-      .text('FoxTag')
+      .text('Printed with <3 by FoxTag')
       .newline()
       .qrcode(url, 2, undefined, 'h')
       .newline()

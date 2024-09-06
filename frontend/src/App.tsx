@@ -6,31 +6,30 @@ import { PrinterDriver } from './printer/PrinterDriver';
 const driver = new PrinterDriver();
 
 function App() {
-  const [connected, setConnected] = useState(true);
-  const connectHandler = useCallback(async () => {
-    try {
-      // await driver.requestPort();
-      // setConnected(driver.printerIsConnected());
-    } catch (e) {
-      console.error(e);
-    }
-  }, []);
+  const [label, setLabel] = useState('Hello World');
+  const [url, setUrl] = useState('https://deadcomputersociety.com');
 
   const printHandler = useCallback(async () => {
     try {
-      await driver.print('https://deadcomputersociety.com', 'Printed with <3 by FoxTag ');
+      await driver.print(url, label);
     } catch (e) {
       alert(e);
     }
-  }, []);
+  }, [url, label]);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {connected ? "Printer Connected" : "Printer Not Connected"}
-        </p>
-        <button onClick={connectHandler}>Connect</button>
+        <img src={'logo.png'} className="App-logo" alt="logo" />
+        <h1>
+          FoxTag
+        </h1>
+        <label>Label<br/>
+          <input onChange={(e) => setLabel(e.target.value)} value={label} />
+        </label>
+        <label>URL<br/>
+          <input onChange={(e) => setUrl(e.target.value)} value={url} />
+        </label>
+        <br/>
         <button onClick={printHandler}>Print</button>
       </header>
     </div>
