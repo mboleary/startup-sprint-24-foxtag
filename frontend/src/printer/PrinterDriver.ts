@@ -10,6 +10,7 @@ export class PrinterDriver {
   // private portReader: ReadableStream<Uint8Array> | null = null;
 
   private ws: WebSocket;
+  // private img: Image;
 
   constructor(
     private readonly printerSettings: PrinterSettings = EPSON_PRINTER_OPTIONS
