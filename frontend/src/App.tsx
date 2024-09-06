@@ -6,11 +6,11 @@ import { PrinterDriver } from './printer/PrinterDriver';
 const driver = new PrinterDriver();
 
 function App() {
-  const [connected, setConnected] = useState(false);
+  const [connected, setConnected] = useState(true);
   const connectHandler = useCallback(async () => {
     try {
-      await driver.requestPort();
-      setConnected(driver.printerIsConnected());
+      // await driver.requestPort();
+      // setConnected(driver.printerIsConnected());
     } catch (e) {
       console.error(e);
     }
