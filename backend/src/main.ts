@@ -1,4 +1,4 @@
-import { RawData, WebSocket, WebSocketServer } from 'ws';
+import { WebSocketServer } from 'ws';
 import fs, { FileHandle } from "node:fs/promises";
 
 const wss = new WebSocketServer({ port: 8080 });
@@ -14,13 +14,7 @@ wss.on('connection', async function connection(ws) {
       await handle.write(data as Uint8Array);
     }
   });
-
-  ws.send('something');
 });
-
-wss.on('start', () => {
-  console.log("server started");
-})
 
 async function main() {
   console.log("open lp");

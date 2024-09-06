@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { PrinterDriver } from './printer/PrinterDriver';
 
