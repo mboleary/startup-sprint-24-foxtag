@@ -25,7 +25,9 @@ wss.on('start', () => {
 async function main() {
   console.log("open lp");
   try {
-    handle = await fs.open('/dev/usb/lp0');
+    handle = await fs.open('/dev/usb/lp0', 'a+');
+    const writeStream = await handle.createWriteStream();
+    writeStream.write('this is a test');
   } catch (err) {
     console.error(err);
   }

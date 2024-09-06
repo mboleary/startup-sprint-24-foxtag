@@ -87,6 +87,12 @@ export class PrinterDriver {
       .text(url)
       .newline()
       .text(label)
+      .newline()
+      .newline()
+      .newline()
+      .newline()
+      .newline()
+      .cut('partial')
       .encode();
     await this.printRaw(bytes);
   }
